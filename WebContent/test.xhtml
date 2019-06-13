@@ -9,6 +9,50 @@
     <title>Hallo Welt</title>
   </h:head>
   <h:body>
-    <h:outputText id="gruss" value="#{tHandler.gruss}" />
+  
+  <h:form>
+  
+  	<h:inputText value="#{tHandler.warenkorb}" required="true" requiredMessage="Value Eingeben"/>
+  	<br/>
+  	<h:outputText value="#{tHandler.getWarenkorb()}" />
+  	<br/>
+  	<h:commandButton value="Drück mich" action="test.xhtml"></h:commandButton>
+  </h:form>
+  	
+  	<br/>
+  	<br/>
+  	<h:form>
+  
+  	<h:inputText  value="#{tHandler.ACookie}" required="true" requiredMessage="Value Eingeben">
+  	 <f:ajax render="outp" />
+  	</h:inputText>
+  	<br/>
+
+  	<br/>
+  	<h:commandButton value="Drück mich" action="test.xhtml"/>
+  	<h:outputText id="outp" value="#{tHandler.getACookie()}" />
+  </h:form>
+  <h:form>
+  	<h:commandButton value="reset BCookie" action="#{tHandler.resetCookie()}"></h:commandButton>
+  </h:form>
+  <h:form>
+  	<h:commandButton value="Cookie fester Wert" action="#{tHandler.setACookie('Wert')}"> <f:ajax render="obo" /></h:commandButton>
+  </h:form>
+  <h:outputText id="obo" value="#{tHandler.ACookie}"></h:outputText>
+  
+  <h:form>
+  	<h:inputText value="#{tHandler.mapCookie}" required="true">
+  		<f:ajax render="mapiC" />
+  	</h:inputText>
+  	<br/>
+  	<h:inputText value="#{tHandler.menge}" required="true">
+  		<f:ajax render="mapiM" />
+  	</h:inputText>
+  	<br/>
+  	<h:commandButton value="MapCookies" action="tes.xhtml"/>
+  </h:form>
+  	<h:outputText id="mapiC" value="#{tHandler.mapCookie}" />
+  	<h:outputText id="mapiM" value="#{tHandler.menge}" />
+  
   </h:body>
 </html>
